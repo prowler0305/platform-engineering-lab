@@ -1,3 +1,0 @@
-locals {
-  order_api_port = 5000
-}

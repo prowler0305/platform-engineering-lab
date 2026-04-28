@@ -1,3 +1,3 @@
 resource "docker_network" "lab" {
-  name = "platform-lab"
+  name = local.network_name
 }

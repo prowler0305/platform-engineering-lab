@@ -31,7 +31,6 @@ variable "ports" {
 variable "build_context_path" {
   description = "Path to the event driven systems source files for image building"
   type        = string
-  default     = "../../../event_driven_processing_system"
 }
 
 variable "dockerfile_path" {

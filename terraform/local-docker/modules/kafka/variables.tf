@@ -7,8 +7,18 @@ variable "kafka_host" {
   type        = string
   default     = "kafka"
 }
-variable "kafka_port" {
-  description = "Kafka interface port"
+variable "kafka_internal_port" {
+  description = "Kafka internal interface port"
   type        = number
   default     = 9092
+}
+
+variable "kafka_external_port" {
+  description = "Kafka external port access"
+  type        = number
+}
+
+variable "container_name" {
+  description = "Name to be used for kafka container"
+  type        = string
 }
