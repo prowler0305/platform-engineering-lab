@@ -1,3 +1,34 @@
+# ------------------------------------------------------------------------------
+# Terraform Backend Configuration
+#
+# This defines where Terraform stores its state file.
+#
+# We are currently using the "local" backend:
+# - State is stored on disk in this environment directory
+# - Each environment (dev/qa/prod) has its own isolated state file
+#
+# In real-world setups, this is replaced with a remote backend (e.g. S3):
+# - Centralized state storage
+# - Shared across team members and CI/CD pipelines
+# - Enables state locking (via DynamoDB) to prevent concurrent applies
+#
+# Example remote backend (AWS S3 + DynamoDB locking):
+#
+# backend "s3" {
+#   bucket         = "company-terraform-state"
+#   key            = "platform-lab/dev/terraform.tfstate"
+#   region         = "us-east-1"
+#   dynamodb_table = "terraform-locks"
+# }
+#
+# Key concept:
+# Backend = source of truth for infrastructure state
+# ------------------------------------------------------------------------------
+terraform {
+  backend "local" {
+    path = "terraform.tfstate"
+  }
+}
 terraform {
   required_providers {
     docker = {
