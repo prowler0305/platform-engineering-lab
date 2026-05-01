@@ -1,17 +1,15 @@
 # Terraform Infrastructure – Multi-Environment Event-Driven System
 
 ## Overview
+This project implements a **production-inspired Terraform infrastructure** for a containerized event-driven system, demonstrating module design, multi-environment isolation, and infrastructure-to-application configuration integration.
 
-This repository contains a **Terraform-based infrastructure setup** that provisions a local, containerized event-driven system using Docker.
+### Highlights
 
-The final setup demonstrates:
-
-- Multi-environment deployments (`dev`, `qa`, `prod`)
-- Reusable Terraform modules
-- Isolated state per environment
-- Environment-specific container/network naming
-- Infrastructure-driven application configuration
-- Production-inspired workflows such as backend configuration and saved plans
+- Built a **multi-environment Terraform system (dev/qa/prod)** running simultaneously on a single host
+- Designed **reusable modules** (Kafka + generic service container pattern)
+- Implemented **state isolation per environment**
+- Integrated **Terraform → application configuration via environment variables**
+- Simulated **production patterns** (backend config, locking concepts, saved plan workflow)
 
 ---
 
@@ -300,17 +298,19 @@ Backend configuration and saved plan workflows were added to demonstrate product
 
 ## Key Takeaways
 
-This project demonstrates:
+- Terraform is a **graph-based execution engine**, not a script runner
+- State is the **source of truth**, not the code
+- Modules should be **purpose-driven**, not over-generalized
+- Environment isolation requires **namespacing and port separation**
+- Infrastructure and application configuration must be **aligned**
+- Safe refactoring requires **explicit state management**
+- Terraform is **not concurrency-safe without locking**
 
-- Terraform module design
-- Safe state refactoring
-- Reusable infrastructure patterns
-- Multi-environment isolation
-- Docker networking and host port separation
-- Infrastructure-driven application configuration
-- Backend/state concepts
-- Saved plan/apply workflow
-- Understanding of why state locking matters in team environments
+---
+
+## Why This Matters
+
+This project demonstrates the ability to move beyond basic Terraform usage and design infrastructure systems that reflect real-world engineering concerns such as environment isolation, configuration management, and safe infrastructure changes.
 
 ---
 
